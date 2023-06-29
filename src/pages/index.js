@@ -1,9 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import styles from "@/styles/Home.module.css";
+import Alert from "react-bootstrap/Alert";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -14,6 +15,24 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <>
+        {[
+          "primary",
+          "secondary",
+          "success",
+          "danger",
+          "warning",
+          "info",
+          "light",
+          "dark",
+        ].map((variant) => (
+          <Alert key={variant} variant={variant}>
+            This is a {variant} alert—check it out!
+          </Alert>
+        ))}
+      </>
+
       <main className={`${styles.main} ${inter.className}`}>
         <div className={styles.description}>
           <p>
@@ -26,7 +45,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              By{' '}
+              By{" "}
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
@@ -110,5 +129,5 @@ export default function Home() {
         </div>
       </main>
     </>
-  )
+  );
 }
